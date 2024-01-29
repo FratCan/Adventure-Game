@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+C:\Users\fcan_\OneDrive\Masaüstü\projelerim\Adventure Game\.metadata\.plugins\org.eclipse.jdt.core
+3939451352.index
+1865797976.index
+31278115.index
