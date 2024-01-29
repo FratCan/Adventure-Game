@@ -1,3 +1,4 @@
+package game;
 import java.util.Scanner;
 
 public class Game {
@@ -6,18 +7,17 @@ public class Game {
     Scanner scanner=new Scanner(System.in);
 	
 	public void login(){
-		try (Scanner scanner = new Scanner(System.in)) {
+			Scanner scanner = new Scanner(System.in); 
 			System.out.println("Macera oyununa hosgeldiniz");
 			System.out.print("Oyuna baslamadan once isminizi girin: ");
 			
 			String playername=scanner.nextLine();
 			
 			player=new Player(playername);
-		}
+		
 		player.selectCha();
-		
-		
-	
+
+				
 		start();
 	}
 	public void start() {
@@ -44,11 +44,24 @@ public class Game {
 			case 1:
 				location=new SafeHouse(player);
 				break;
+			case 2:{
+				location=new Cave(player);
+				break;
+			}
+			case 3:{
+				location=new Forest(player);
+				break;
+			}
+			case 4:{
+				location=new River(player);
+				break;
+			}
 			case 5:
 				location=new ToolStore(player);
 				break;
 			default:
 				location=new SafeHouse(player);
+				break;
 			}
 			if(!location.getLocation()) {
 				System.out.println("oyun bitti!");

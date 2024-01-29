@@ -1,3 +1,4 @@
+package game;
 import java.util.Scanner;
 
 public class Player {
@@ -48,10 +49,8 @@ public class Player {
 		System.out.println("1-Samuray\tHasar: 5\tSaglik: 21\tPara: 15");
 		System.out.println("2-Okcu    \tHasar: 7\tSaglik: 18\tPara: 20");
 		System.out.println("3-Sovalye\tHasar: 8\tSaglik: 24\tPara: 5");
-		
-		int chaId=0;
 		System.out.print("Karakter seciniz: ");
-		
+		int chaId=0;
 		if(scanner.hasNextInt()) {
 			chaId=scanner.nextInt();
 			while(chaId<0 || chaId>3 ){
@@ -65,10 +64,14 @@ public class Player {
 			chaId=chaMenu();
 		}
 		return chaId;
-		
 	}
 	
-	
+	public int getTotalDamage(){
+		return this.getDamage()+this.getInv().getDamage();
+	}
+	public int getTotalArmor() {
+		return this.getHealty()+this.getInv().getArmor();
+	}
 	public void initplayer(String cname,int dmg,int hlty,int mny){
 		setcName(cname);
 		setDamage(dmg);

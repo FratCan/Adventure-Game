@@ -1,3 +1,4 @@
+package game;
 public class ToolStore extends NormalLoc {
 
 	public ToolStore(Player player) {
@@ -74,16 +75,21 @@ public class ToolStore extends NormalLoc {
 			price=45;
 			break;
 		}
+		case 4:{
+			System.out.println("cikis yapiliyor");
+			break;
+		}
 		default:
 			System.out.println("Gecersiz islem");
 			break;
 		}
 		
-		if(player.getMoney()>price) {
+		if(player.getMoney()>=price) {
 			player.getInv().setDamage(damage);
 			player.getInv().setwName(wname);
 			player.setMoney(player.getMoney()-price);
-			System.out.println(wname+" satin aldiniz onceki hasar: "+player.getDamage()+" yeni hasar: "+(player.getDamage()+player.getInv().getDamage()));
+			System.out.println(wname+" satin aldiniz onceki hasar: "+player.getDamage()+" yeni hasar: "+player.getTotalDamage());
+			System.out.println("Kalan para: "+player.getMoney());
 		}
 		else {
 			System.out.println("Bakiye yetersiz");
@@ -93,25 +99,29 @@ public class ToolStore extends NormalLoc {
 	}
 	
 	public void buyArmor(int itemID) {
-		int engelleme = 0,para=0;
+		int engelleme = 0,price=0;
 		String aname=null;
 		switch (itemID) {
 		case 1: {
 			engelleme=1;
-			para=15;
+			price=15;
 			aname="Hafif";
 			break;
 		}
 		case 2:{
 			engelleme=3;
-			para=25;
+			price=25;
 			aname="Orta";
 			break;
 		}
 		case 3:{
 			engelleme=5;
-			para=40;
+			price=40;
 			aname="Agir";
+			break;
+		}
+		case 4:{
+			System.out.println("cikis yapiliyor");
 			break;
 		}
 		default:
@@ -119,11 +129,12 @@ public class ToolStore extends NormalLoc {
 			break;
 		}
 		
-		if(player.getMoney()>para) {
+		if(player.getMoney()>=price) {
 			player.getInv().setArmor(engelleme);
 			player.getInv().setaName(aname);
-			player.setMoney(player.getMoney()-para);
-			System.out.println(aname+" zirh satin aldiniz onceki armor:"+player.getHealty()+" yeni armor: "+(player.getrHealty()+player.getInv().getArmor()));
+			player.setMoney(player.getMoney()-price);
+			System.out.println(aname+" zirh satin aldiniz onceki armor:"+player.getHealty()+" yeni armor: "+player.getTotalArmor());
+			System.out.println("Kalan para: "+player.getMoney());
 		}
 		else {
 			System.out.println("Bakiye yetersiz");
